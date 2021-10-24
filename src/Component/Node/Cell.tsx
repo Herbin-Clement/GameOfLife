@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
-import './Node.css';
+import './Cell.css';
 
-type NodeProps = {
+type CellProps = {
     color: boolean,
     width: number,
     height: number,
     row: number,
     column: number,
-    updateNodes: (rowId: number, columnId: number) => void
+    updateCells: (rowId: number, columnId: number) => void
 };
 
-const Node = ({color, row, column, updateNodes}: NodeProps) => {
+const Cell = ({color, row, column, updateCells}: CellProps) => {
 
     const [isSelect, setIsSelect] = useState(color);
 
     const handleClick = () => {
         // setIsSelect(!isSelect);
-        updateNodes(row, column);
+        updateCells(row, column);
     }
 
     useEffect(() => {
@@ -25,10 +25,10 @@ const Node = ({color, row, column, updateNodes}: NodeProps) => {
     }, [color]);
 
     return(
-        <div onClick={() => handleClick()} className={`node ${isSelect ? "" : "colorNode"}`}>
+        <div onClick={() => handleClick()} className={`cell ${isSelect ? "" : "colorCell"}`}>
             
         </div>
     );
 };
 
-export default Node;
+export default Cell;

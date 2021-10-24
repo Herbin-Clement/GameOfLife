@@ -13,7 +13,7 @@ const App: React.FC = () => {
   
   const [nodes, setNodes] = useState(Array(h).fill(false).map(() => Array(w).fill(false)));
 
-  const updateNodeValue = (rowId: number, columnId: number):void => {
+  const updateCellValue = (rowId: number, columnId: number):void => {
     const tmp = [...nodes];
     tmp[rowId][columnId] = !tmp[rowId][columnId];
     setNodes(tmp);
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   
   return (
     <div className="App">
-      <Display nbWidth={Math.floor(w)} nbHeight={Math.floor(h)} grid={nodes} updateNodes={updateNodeValue}></Display>
+      <Display nbWidth={Math.floor(w)} nbHeight={Math.floor(h)} grid={nodes} updateCells={updateCellValue}></Display>
     </div>
   );
 }

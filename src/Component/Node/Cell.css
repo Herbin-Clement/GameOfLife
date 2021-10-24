@@ -1,4 +1,4 @@
-.node {
+.cell {
     box-sizing: border-box;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
@@ -8,14 +8,14 @@
     background-color: aliceblue;
 }
 
-.node:first-child {
+.cell:first-child {
     border-left: 1px solid black;
 }
 
-.row:first-child > .node {
+.row:first-child > .cell {
     border-top: 1px solid black;
 }
 
-.colorNode {
+.colorCell {
     background-color: black;
 }
