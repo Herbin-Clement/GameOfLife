@@ -17,7 +17,6 @@ const App: React.FC = () => {
     const tmp = [...nodes];
     tmp[rowId][columnId] = !tmp[rowId][columnId];
     setNodes(tmp);
-    console.log(nodes);
   }
   
   return (

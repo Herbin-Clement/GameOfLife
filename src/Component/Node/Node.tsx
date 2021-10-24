@@ -20,7 +20,9 @@ const Node = ({color, row, column, updateNodes}: NodeProps) => {
         updateNodes(row, column);
     }
 
-    useEffect(() => console.log(color));
+    useEffect(() => {
+        setIsSelect(color);
+    }, [color]);
 
     return(
         <div onClick={() => handleClick()} className={`node ${isSelect ? "" : "colorNode"}`}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './Display.css';
 
@@ -25,7 +25,7 @@ const Display = ({nbWidth, nbHeight, grid, updateNodes}: DisplayProps) => {
                       key={nodeIdx} 
                       row={rowIdx} 
                       column={nodeIdx} 
-                      color={false} 
+                      color={node} 
                       width={100/nbWidth} 
                       height={100/nbHeight}
                       updateNodes={updateNodes}
