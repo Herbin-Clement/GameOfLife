@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
 import Display from './Component/Display/Display';
-import useWindowDimensions from './Hooks/dimension';
 
 const App: React.FC = () => {
 
-  const {width, height} = useWindowDimensions();
-
   // let w: number = width * 0.70 / 15;
   // let h: number = height * 0.70 / 15;
-  let w = 55;
-  let h = 30;
-  console.log(w);
-  console.log(h);
+  let w: number = 10;
+  let h: number = 10;
+  
+  const [nodes, setNodes] = useState(Array(h).fill(false).map(() => Array(w).fill(false)));
 
+  const updateNodeValue = (rowId: number, columnId: number):void => {
+    const tmp = [...nodes];
+    tmp[rowId][columnId] = !tmp[rowId][columnId];
+    setNodes(tmp);
+    console.log(nodes);
+  }
+  
   return (
     <div className="App">
-      <Display nbWidth={Math.floor(w)} nbHeight={Math.floor(h)}></Display>
+      <Display nbWidth={Math.floor(w)} nbHeight={Math.floor(h)} grid={nodes} updateNodes={updateNodeValue}></Display>
     </div>
   );
 }

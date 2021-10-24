@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Node.css';
 
 type NodeProps = {
-    color: string,
+    color: boolean,
     width: number,
     height: number,
     row: number,
     column: number,
+    updateNodes: (rowId: number, columnId: number) => void
 };
 
-const Node = ({color, row, column}: NodeProps) => {
+const Node = ({color, row, column, updateNodes}: NodeProps) => {
 
-    const colorStyle: string = color ? "" : "colorNode";
+    const [isSelect, setIsSelect] = useState(color);
+
+    const handleClick = () => {
+        // setIsSelect(!isSelect);
+        updateNodes(row, column);
+    }
+
+    useEffect(() => console.log(color));
 
     return(
-        <div onClick={() => console.log(row, column)} className={`node ${colorStyle}`}>
+        <div onClick={() => handleClick()} className={`node ${isSelect ? "" : "colorNode"}`}>
             
         </div>
     );

@@ -3,25 +3,33 @@ import React from 'react';
 import './Display.css';
 
 import Node from '../Node/Node';
-import { cpuUsage } from 'process';
 
 type DisplayProps = {
     nbWidth: number,
-    nbHeight: number
+    nbHeight: number,
+    grid: Array<Array<boolean>>,
+    updateNodes: (rowId: number, column: number) => void
 };
 
-const Display = ({nbWidth, nbHeight}: DisplayProps) => {
+const Display = ({nbWidth, nbHeight, grid, updateNodes}: DisplayProps) => {
 
-    const nodes: Array<Array<Node>> = Array(nbHeight).fill(null).map(() => Array(nbWidth).fill(null));
     // console.log(nodes);
     return(
         <div className="grid">
-          {nodes.map((row, rowIdx) => {
+          {grid.map((row, rowIdx) => {
             return (
               <div key={rowIdx} className="row">
                 {row.map((node, nodeIdx) => {
                   return (
-                    <Node key={nodeIdx} row={rowIdx} column={nodeIdx} color="white" width={100/nbWidth} height={100/nbHeight}/>
+                    <Node 
+                      key={nodeIdx} 
+                      row={rowIdx} 
+                      column={nodeIdx} 
+                      color={false} 
+                      width={100/nbWidth} 
+                      height={100/nbHeight}
+                      updateNodes={updateNodes}
+                      />
                   );
                 })}
               </div>
