@@ -7,9 +7,6 @@ import { computeNewArray } from './lib/lib'
 import Display from './Component/Display/Display';
 
 const App: React.FC = () => {
-
-  // let w: number = width * 0.70 / 15;
-  // let h: number = height * 0.70 / 15;
   let w: number = 55;
   let h: number = 27;
   
@@ -34,8 +31,6 @@ const App: React.FC = () => {
     let tmp = [...nodes];
     let res = computeNewArray(w, h, tmp);
     setNodes(res);
-    console.log(tmp);
-    console.log(res);
   }
   
   return (
